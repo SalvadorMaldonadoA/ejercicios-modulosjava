@@ -1,31 +1,25 @@
 import java.util.Scanner;
-import java.time.Year;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Ingresa la marca del vehículo: ");
-        String marca = scanner.nextLine();
+        System.out.println("Ingrese la temperatura:");
+        double temp = sc.nextDouble();
+        sc.nextLine(); // limpiar buffer
 
-        System.out.print("Ingresa el año de fabricación: ");
-        int anio = scanner.nextInt();
+        System.out.println("Ingrese la unidad de medida (Celsius o Fahrenheit):");
+        String unidadMedida = sc.nextLine();
 
-        System.out.print("Ingrese la velocidad máxima del vehículo: ");
-        double velocidad = scanner.nextDouble();
+        System.out.println("Ingrese la fecha de registro:");
+        String fecha = sc.nextLine();
 
-        automovil auto = new automovil(marca, anio, velocidad);
+        temperatura.temperatura temperatura = new temperatura.temperatura(temp, unidadMedida, fecha);
 
-        int anioActual = Year.now().getValue();
-
-
-        System.out.println("Marca: " + auto.getMarcaVehiculo());
-        System.out.println("Año de fabricación: " + auto.getAnioFabricacion());
-        System.out.println("Velocidad máxima: " + auto.getVelocidadMaxima());
-        System.out.println("\nEncender el vehículo: " + auto.encender(anioActual));
-        System.out.println("Antigüedad del vehículo: " + auto.calcularAntiguedad(anioActual) + " años");
-
-        scanner.close();
+        System.out.println("Fecha: " + temperatura.getFechaRegistro());
+        System.out.println("Temperatura convertida: " + temperatura.conversion());
+        System.out.println("Unidad actual: " + temperatura.getUnidadDeMedida());
+        System.out.println("Evaluación: " + temperatura.evaluarTemperatura());
     }
 }
 
